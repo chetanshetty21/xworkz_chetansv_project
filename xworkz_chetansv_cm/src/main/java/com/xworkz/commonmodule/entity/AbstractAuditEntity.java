@@ -10,9 +10,9 @@ import lombok.Data;
 
 @MappedSuperclass
 @Data
-public class AbstractAuditEntity implements Serializable {
-	private String createdBy = "chetansv";
-	private LocalDateTime createdDate = LocalDateTime.now();
-	private String updatedBy = "chetansv";
-	private LocalDateTime updatedDate = LocalDateTime.now();
+public abstract class AbstractAuditEntity implements Serializable {
+	private String createdBy;
+	private LocalDateTime createdDate;
+	private String updatedBy;
+	private LocalDateTime updatedDate;
 }

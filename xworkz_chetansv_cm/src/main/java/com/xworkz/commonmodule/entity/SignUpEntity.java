@@ -4,7 +4,7 @@ import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -12,6 +12,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "signup_table")
+@NamedQuery(name = "unique", query = "select entity from SignUpEntity entity where entity.userId=:useridby or entity.email=:emailby or entity.mobile=:mobileby")
 public class SignUpEntity extends AbstractAuditEntity{
 	@Id
 	@Column(name = "signup_id")

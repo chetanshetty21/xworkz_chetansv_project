@@ -1,8 +1,8 @@
 package com.xworkz.commonmodule.dto;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -28,6 +28,7 @@ public class SignUpDTO {
 	@Size(min = 8, max = 20, message = "confirmPassword should contain char min 3 and less than 20")
 	@Pattern(regexp = "^[a-zA-Z]+$", message = "confirmPassword should be stored in char only")
 	private String confirmPassword;
+	@AssertTrue
 	private boolean acceptAgreement;
-	private int id;
+//	private int id;
 }
