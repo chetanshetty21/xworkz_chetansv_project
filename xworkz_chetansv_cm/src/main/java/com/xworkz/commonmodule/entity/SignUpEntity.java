@@ -12,8 +12,12 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "signup_table")
-@NamedQuery(name = "unique", query = "select entity from SignUpEntity entity where entity.userId=:useridby or entity.email=:emailby or entity.mobile=:mobileby")
-public class SignUpEntity extends AbstractAuditEntity{
+@NamedQuery(name = "findByUser", query = "select count(*) from SignUpEntity entity where entity.userId=:useridby")
+@NamedQuery(name = "findByEmail", query = "select count(*) from SignUpEntity entity where entity.email=:emailby")
+@NamedQuery(name = "findByMobile", query = "select count(*) from SignUpEntity entity where entity.mobile=:mobileby")
+@NamedQuery(name = "findByUserAndPassword", query = "select entity from SignUpEntity entity where entity.userId=:useridby ")
+
+public class SignUpEntity extends AbstractAuditEntity {
 	@Id
 	@Column(name = "signup_id")
 	private int id;
@@ -22,7 +26,7 @@ public class SignUpEntity extends AbstractAuditEntity{
 	@Column(name = "email")
 	private String email;
 	@Column(name = "mobile")
-	private long mobile;
+	private Long mobile;
 	@Column(name = "password")
 	private String password;
 	@Column(name = "signup_accept_aggrement")

@@ -3,9 +3,14 @@ package com.xworkz.commonmodule.controller;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.NoResultException;
 import javax.validation.ConstraintViolation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.providers.dao.DaoAuthenticationProvider;
+import org.springframework.security.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,39 +34,73 @@ public class SignUpController {
 	public String onSignUp(Model model) {
 		log.info("this is onSignUp get method");
 
-		return "index";
+		return "Signup";
 	}
 
 	@PostMapping("/saveSignUp")
 	public String onSignUp(Model model, SignUpDTO dto) {
 		log.info("running on SignUp post method");
-		if (dto.getPassword().equals(dto.getConfirmPassword())) {
-			Set<ConstraintViolation<SignUpDTO>> constraintViolations = signUpService.validateAndSave(dto);
-			List<SignUpDTO> dtos = this.signUpService.uniqe(dto.getUserId(), dto.getEmail(), dto.getMobile());
-			if (constraintViolations != null && !constraintViolations.isEmpty()) {
-				log.info("volations in contoller ");
-				model.addAttribute("errors", constraintViolations);
-				model.addAttribute("dto", dto);
-				return "index";
-			} if (dtos!=null) {
-				model.addAttribute("error", "User already exist");
-				return "index";
-				
-			} else {
 
-				model.addAttribute("success", "SignedUp Successfully");
-				log.error(" no volation  in controller go to success page");
-				return "index";
+		Set<ConstraintViolation<SignUpDTO>> constraintViolations = signUpService.validateAndSave(dto);
 
-			}
+		if (constraintViolations.isEmpty()) {
+			model.addAttribute("success", "SignedUp Successfully");
+			log.error(" no volation  in controller go to success page");
+			return "Signup";
+
 		} else {
-			model.addAttribute("error", "Password not matching");
-			return "index";
+
+			log.info("volations in contoller ");
+			model.addAttribute("errors", constraintViolations);
+			model.addAttribute("dto", dto);
+			return "Signup";
+
 		}
 
 	}
 
+	@PostMapping("/findByUserAndPassword")
+	public String findByUserAndPassword(@RequestParam String user, @RequestParam String password, Model model) {
+		log.info("running findByUserAndPassword controller" + "property1" + user + "property2" + password);
+		try {
+			SignUpDTO dto = this.signUpService.findByUserAndPassword(user, password);
 
+			if (dto != null ) {
+
+				model.addAttribute("message", dto.getUserId());
+				return "Success";
+			}
+
+		} catch (NoResultException nre) {
+		}
+		model.addAttribute("message", "Userid or password is wrong");
+
+		return "SignIn";
+
+	}
+
+}
+//	@PostMapping("/findByUserAndPassword")
+//	public String findByUserAndPassword(@RequestParam String user, @RequestParam String password, Model model) {
+//		log.info("running findByUserAndPassword controller" + "property1" + user + "property2" + password);
+//
+//		SignUpDTO dto = this.signUpService.findByUserAndPassword(user, password);
+//		
+//		if (dto != null) {
+//
+//			model.addAttribute("message", dto.getUserId());
+//			return "Success";
+//			
+//			
+//		} else {
+//			model.addAttribute("message", "Userid or password is wrong");
+//
+//			return "SignIn";
+//		}
+//
+//	}
+//
+//}
 //	@PostMapping("/saveSignUp")
 //	public String unique(@RequestParam String user, @RequestParam String email, @RequestParam long mobile,
 //			Model model) {
@@ -79,7 +118,6 @@ public class SignUpController {
 //		return "index";
 //
 //	}
-}
 
 //public String onSearchTwoProperties(@RequestParam String name, @RequestParam String color, Model model) {
 //	log.info("running onsearchByName controller" + "property1" + name + "property2" + color);
@@ -94,3 +132,7 @@ public class SignUpController {
 //	}
 //	return "SearchTwoProperties";
 //}
+// if(dtos!=null){model.addAttribute("error","User already
+// exist");return"index";
+
+//List<SignUpDTO> dtos = this.signUpService.uniqe(dto.getUserId(), dto.getEmail(), dto.getMobile());

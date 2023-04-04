@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public abstract class AbstractAuditEntity implements Serializable {
 	private String createdBy;
-	private LocalDateTime createdDate;
+	private LocalDateTime createdDate=LocalDateTime.now();
 	private String updatedBy;
 	private LocalDateTime updatedDate;
 }

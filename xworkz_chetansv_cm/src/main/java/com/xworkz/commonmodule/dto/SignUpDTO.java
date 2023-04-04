@@ -1,6 +1,7 @@
 package com.xworkz.commonmodule.dto;
 
 import javax.validation.constraints.AssertTrue;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
@@ -22,10 +23,10 @@ public class SignUpDTO {
 	@Min(message = "mobile number should be more than 10", value = 10)
 //	@Pattern(regexp = "^[0-9]", message = "mobile number should be stored in numbers only")
 	private long mobile;
-	@Size(min = 8, max = 20, message = "password should contain char min 3 and less than 20")
+	@Size(min = 8, max = 20, message = "password should contain char min 8 and less than 20")
 	@Pattern(regexp = "^[a-zA-Z]+$", message = "password should be stored in char only")
 	private String password;
-	@Size(min = 8, max = 20, message = "confirmPassword should contain char min 3 and less than 20")
+	@Size(min = 8, max = 20, message = "confirmPassword should contain char min 8 and less than 20")
 	@Pattern(regexp = "^[a-zA-Z]+$", message = "confirmPassword should be stored in char only")
 	private String confirmPassword;
 	@AssertTrue
