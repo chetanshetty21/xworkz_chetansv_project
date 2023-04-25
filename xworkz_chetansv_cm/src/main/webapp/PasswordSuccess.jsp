@@ -19,20 +19,22 @@
 <body>
 	<nav class="navbar navbar-expand-lg-navbar-Light bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"></a> <img
+			<a class="navbar-brand" href="#"> <img
 				src=" https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
 				alt="" width="80" height="48" class="d-inline-block align text-top">
-      <a href="SignIn.jsp"<span class="glyphicon glyphicon-log-in"></span>> Logout</a>
-     <span style="color: white;">Welcome:${userID}</span>
-       <img src="download?fileName=${dtoPic}" height="50" width="80">
+				<a class="navbar-brand" href="#"></a> <img
+				src=" https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
+				alt="" width="80" height="48" class="d-inline-block align text-top">
 		</div>
 	</nav>
-		<div align="center"> 
-	   User Name:${userID}
-	 <h1 style="color: green;">LOGIN SUCESSFULLY</h1>
-	  <a href="UpdateProfile.jsp">Update profile</a> <br> 
-	  <a href="addTech">add</a><br>
-	  Search <input type="search"> 
-	</div> 
+	<nav class="navbar navbar-expand">
+		<div class="container-fluid">
+			<a href="signUp.jsp"><span class="glyphicon glyphicon-user"></span>
+				Sign Up</a> <a href="SignIn.jsp"><span
+				class="glyphicon glyphicon-log-in"></span> Login</a>
+		</div>
+	</nav>
+
+	<h1 style="color: purple;">UPDATE SUCESSFULLY</h1>
 </body>
 </html>

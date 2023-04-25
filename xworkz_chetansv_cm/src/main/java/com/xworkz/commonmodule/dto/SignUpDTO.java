@@ -1,18 +1,30 @@
 package com.xworkz.commonmodule.dto;
 
+import java.time.LocalTime;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.AssertTrue;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.xworkz.commonmodule.entity.TechEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class SignUpDTO {
 
 	@Size(min = 3, max = 20, message = "userId should contain char min 3 and less than 20")
@@ -31,5 +43,11 @@ public class SignUpDTO {
 	private String confirmPassword;
 	@AssertTrue
 	private boolean acceptAgreement;
-//	private int id;
+	private int id;
+	private int loginCount;
+	private boolean resetPassword;
+	private LocalTime passwordChangedTime;
+	private String fileName;
+	private List<TechEntity> tech;
+
 }

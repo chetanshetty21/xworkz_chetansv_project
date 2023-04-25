@@ -8,8 +8,9 @@ import javax.validation.ConstraintViolation;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.xworkz.commonmodule.constants.TechEnum;
 import com.xworkz.commonmodule.dto.SignUpDTO;
-import com.xworkz.commonmodule.entity.SignUpEntity;
+import com.xworkz.commonmodule.entity.TechEntity;
 
 public interface SignUpService {
 	Set<ConstraintViolation<SignUpDTO>> validateAndSave(SignUpDTO signUpDTO);
@@ -30,8 +31,39 @@ public interface SignUpService {
 		return null;
 	}
 
-
-	default SignUpDTO findByUserAndPassword(String user,String passWord) {
+	default SignUpDTO findByUserAndPassword(String userId, String passWord) {
 		return null;
 	}
+
+	boolean sendMail(String email, String text);
+
+	default SignUpDTO reSetPassword(String email) {
+		return null;
+	}
+
+	default SignUpDTO updateImg(String userId, Long mobile, String email, String path) {
+		return null;
+	}
+
+	default SignUpDTO updateData(String userId, String email, Long mobile) {
+		return null;
+	}
+
+	default SignUpDTO updatePassword(String userId, String password, String confirmPassword) {
+		return null;
+	}
+
+	default SignUpDTO addTech(String userId, TechEntity techEntity) {
+		return null;
+	}
+
+	default List<TechEntity> tech(String userid) {
+		return null;
+
+	}
+
+//	default List<TechEntity> findByTechName(String techName, String userID) {
+//		return Collections.emptyList();
+//
+//	}
 }

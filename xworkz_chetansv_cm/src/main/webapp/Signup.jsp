@@ -6,7 +6,30 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Xworkz</title>
+<style>
+.gradient-custom-3 {
+	/* fallback for old browsers */
+	background: #84fab0;
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5),
+		rgba(143, 211, 244, 0.5));
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, rgba(132, 250, 176, 0.5),
+		rgba(143, 211, 244, 0.5))
+}
+
+.gradient-custom-4 {
+	/* fallback for old browsers */
+	background: #84fab0;
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1),
+		rgba(143, 211, 244, 1));
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, rgba(132, 250, 176, 1),
+		rgba(143, 211, 244, 1))
+}
+</style>
+<title>X-workz</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -16,107 +39,111 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" />
 </head>
 <body>
+	<!-- <nav class="navbar navbar-expand-lg navbar-bright bg-dark">
+		<div class="container-fluid">
+<img
+				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
+				alt="" width="90" height="60" class="d-inline-block align-text-top">
 
-	<section class="vh-100" style="background-color: black;">
-		<div class="container h-100">
-			<div
-				class="row d-flex justify-content-center align-items-center h-100">
-				<div class="col-lg-12 col-xl-11">
-					<div class="card text-black" style="border-radius: 25px;">
-						<div class="card-body p-md-5">
-							<div class="row justify-content-center">
-								<div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+			<ul class="nav justify-content-end">
+				<li class="nav-item"><a class="nav-link" href="Signup.jsp">SignUp</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="SignIn.jsp">SignIn</a>
+				</li>
 
-									<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign
-										up</p>
-									<c:forEach items="${errors}" var="e">
-
-										<span style="color: red;">${e.message }</span>
-									</c:forEach>
+			</ul>
 
 
-									<span style="color: red;">${error }</span>
+		</div>
 
-									<form class="mx-1 mx-md-4" action="saveSignUp" method="Post">
-
-										<div class="d-flex flex-row align-items-center mb-4">
-											<i class="fas fa-user fa-lg me-3 fa-fw"></i>
-											<div class="form-outline flex-fill mb-0">
-
-												<input type="text" id="userId" onchange="onUser()"
-													class="form-control" name="userId" placeholder="USERID" />
-												<label class="form-label" for="form3Example1c">USERID</label>
-												<br>
-											</div>
-											<span id="displayUserName" style="color: red"></span>
-										</div>
-
-										<div class="d-flex flex-row align-items-center mb-4">
-											<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-											<div class="form-outline flex-fill mb-0">
-
-												<input type="email" id="emailId" onchange="onEmail()"
-													class="form-control" name="email" /> <label
-													class="form-label" for="form3Example3c">Your EMAIL</label>
-											</div>
-
-										</div>
+	</nav> -->
 
 
-										<div class="d-flex flex-row align-items-center mb-4">
-											<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-											<div class="form-outline flex-fill mb-0">
-												<input type="number" id="mobileId" onchange="onMobile()"
-													class="form-control" name="mobile" /> <label
-													class="form-label" for="form3Example3c">Mobile</label>
-											</div>
-										</div>
+	<section class="vh-110 bg-image"
+		style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+		<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+			<div class="container h-100">
+				<div
+					class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+						<div class="card" style="border-radius: 15px;">
+							<div class="card-body p-5">
+								<h2 class="text-uppercase text-center mb-5">Create an
+									account</h2>
+								<span style="color: red;" ${success}></span>
+								<c:forEach items="${errors}" var="e">
 
-										<div class="d-flex flex-row align-items-center mb-4">
-											<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-											<div class="form-outline flex-fill mb-0">
-												<input type="password" class="form-control"
-													id="confrimPasswordId" onchange="onConfrimPassword()"
-													name="password" /> <label class="form-label"
-													for="form3Example4c">Password</label>
-											</div>
-										</div>
+									<span style="color: red;">${e.message }</span>
+								</c:forEach>
+								<span style="color: red;">${error}</span>
 
-										<div class="d-flex flex-row align-items-center mb-4">
-											<i class="fas fa-key fa-lg me-3 fa-fw"></i>
-											<div class="form-outline flex-fill mb-0">
-												<input type="password" id="passwordId"
-													onchange="onPassword()" class="form-control"
-													name="confirmPassword" /> <label class="form-label"
-													for="form3Example4cd">Confrim Password</label>
-											</div>
-										</div>
+								<form action="saveSignUp" method="Post">
 
-										<div class="form-check d-flex justify-content-center mb-5">
-											<input class="form-check-input me-2" type="checkbox"
-												value="true" name="acceptAgreement" id="agreementId"
-												onclick="onAgreement()" /> <label class="form-check-label"
-												for="form2Example3"> I agree all statements in <a>Agreement</a>
-											</label>
-										</div>
+									<div class="form-outline mb-4">
+										<input type="text" id="userId"
+											class="form-control form-control-lg" onchange="onUser()"
+											value="${dto.userId}" name="userId" placeholder="Your Name" />
+										<label class="form-label" for="form3Example1cg"><span
+											id="displayUserName" style="color: red"></span></label>
+									</div>
 
-										<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-											<input type="submit" id="submitId" disabled="true"
-												value="save" class="btn btn-primary" />
-										</div>
+									<div class="form-outline mb-4">
+										<input type="email" id="emailId"
+											class="form-control form-control-lg" onchange="onEmail()"
+											value="${dto.email}" name="email" placeholder="Your Email" />
+										<label class="form-label" for="form3Example3cg"><span
+											id="displayEmail" style="color: red"></span></label>
+									</div>
+									<div class="form-outline mb-4">
+										<input type="number" id="mobileId"
+											class="form-control form-control-lg" onchange="onMobile()"
+											value="${dto.mobile}" name="mobile"
+											placeholder="Your Mobile Number" /> <label
+											class="form-label" for="form3Example3cg"><span
+											id="displayMobile" style="color: red"></span></label>
+									</div>
+									<div class="form-outline mb-4">
+										<input type="password" id="confrimPasswordId"
+											class="form-control form-control-lg"
+											onchange="onConfrimPassword()" name="password"
+											placeholder="Password" /> <label class="form-label"
+											for="form3Example4cg"><span id="passwordError"
+											style="color: red"></span></label><input type="checkbox"
+											onclick="myFunction1()">Show Password
+									</div>
 
-									</form>
+									<div class="form-outline mb-4">
+										<input type="password" id="passwordId"
+											class="form-control form-control-lg" onchange=" onPassword()"
+											name="confirmPassword" placeholder="Repeat your password" />
+										<label class="form-label" for="form3Example4cdg"> <span
+											id="passwordCompare" style="color: red"></span></label> <input
+											type="checkbox" onclick="myFunction2()">Show Confirm
+										Password
+									</div>
 
-								</div>
-								<div
-									class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+									<div class="form-check d-flex justify-content-center mb-5">
+										<input class="form-check-input me-2" type="checkbox"
+											value="true" id="agreementId" name="acceptAgreement"
+											onclick="onAgreement()" /> <label class="form-check-label"
+											for="form2Example3g"> I agree all statements in <a
+											href="#!" class="text-body">Terms of service</a>
+										</label>
+									</div>
 
-									<img
-										src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-										class="img-fluid" alt="Sample image">
+									<div class="d-flex justify-content-center">
+										<input type="button" id="submitId" disabled="True"
+											value="Register"
+											class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"></input>
+									</div>
 
-								</div>
-								<div id="displayDTO"></div>
+									<p class="text-center text-muted mt-5 mb-0">
+										Have already an account? <a href="SignIn.jsp"
+											class="fw-bold text-body"><u>Login here</u></a>
+									</p>
+
+								</form>
+
 							</div>
 						</div>
 					</div>
@@ -125,39 +152,55 @@
 		</div>
 	</section>
 	<script>
+		function myFunction1() {
+			var x = document.getElementById("confrimPasswordId");
+			if (x.type === "password") {
+				x.type = "text";
+			} else {
+				x.type = "password";
+			}
+		}
+		function myFunction2() {
+			var x = document.getElementById("passwordId");
+			if (x.type === "password") {
+				x.type = "text";
+			} else {
+				x.type = "password";
+			}
+		}
 		function onUser() {
 			console.log('running onUser');
 			var userInput = document.getElementById('userId');
 			var userValue = userInput.value;
-						
+
 			if (userValue != null && userValue != "" && userValue.length > 3
 					&& userValue.length < 30) {
 				console.log('valid user')
-				//var agreement = document.getElementById('agreementId');
-				//console.log(agreement.checked);
-			
-				//if (agreement.checked) {
-				//	document.getElementById('submitId').disabled = false;
-				//}
-				//alert('enter the user name');
+
+				/* var agree = document.getElementById('agreementConfirm');
+				console.log(agree.checked);
+				if (agree.checked) {
+					document.getElementById('submitId').disabled = false;
+				}
+				document.getElementById('nameError').innerHTML = ''; */
 			} else {
-			console.log('invalid user')
+				console.log('invalid user')
 				document.getElementById('submitId').disabled = 'disabled';
 				//document.getElementById('userError').innerHTML = 'Invalid user please enter min 3 andf max 30'
 				alert('Invalid user please enter min 3 and max 30');
 			}
-			 const xhttp=new XMLHttpRequest();
+			const xhttp = new XMLHttpRequest();
 			console.log('Running in ajax');
-     		xhttp.open("GET", "http://localhost:8080/xworkz_chetansv_cm/userId/"+userValue);
+			xhttp.open("GET",
+					"http://localhost:8080/xworkz_chetansv_cm/userId/"
+							+ userValue);
 			xhttp.send();
-			
-			xhttp.onload=function(){
-			//alert('user is exist ');
-				document.getElementById('displayUserName').innerHTML = this.responseText
- 
-			} 
 
-					
+			xhttp.onload = function() {
+				//alert('user is exist ');
+				document.getElementById('displayUserName').innerHTML = this.responseText
+
+			}
 		}
 
 		function onEmail() {
@@ -172,18 +215,20 @@
 				console.log('invalid email')
 				alert('Please enter a valid e-mail address ');
 
-			} 
-			 const xhttp=new XMLHttpRequest();
+			}
+			const xhttp = new XMLHttpRequest();
 			console.log('Running in ajax');
-     		xhttp.open("GET", "http://localhost:8080/xworkz_chetansv_cm/emailId/"+emailValue);
+			xhttp.open("GET",
+					"http://localhost:8080/xworkz_chetansv_cm/emailId/"
+							+ emailValue);
 			xhttp.send();
-			
-			xhttp.onload=function(){
-			//alert('user is exist ');
-				document.getElementById('displayUserName').innerHTML = this.responseText
 
-			}  
-			
+			xhttp.onload = function() {
+				//alert('user is exist ');
+				document.getElementById('displayEmail').innerHTML = this.responseText
+
+			}
+
 		}
 		/*if (userValue != null && userValue != "" && userValue.length > 3
 					&& userValue.length < 30)
@@ -210,17 +255,19 @@
 				alert('Please enter a valid mobile numbers  which contains 10');
 
 			}
-			const xhttp=new XMLHttpRequest();
+			const xhttp = new XMLHttpRequest();
 			console.log('Running in ajax');
-     		xhttp.open("GET", "http://localhost:8080/xworkz_chetansv_cm/mobile/"+mobileValue);
+			xhttp.open("GET",
+					"http://localhost:8080/xworkz_chetansv_cm/mobile/"
+							+ mobileValue);
 			xhttp.send();
-			
-			xhttp.onload=function(){
-			//alert('user is exist ');
-				document.getElementById('displayUserName').innerHTML = this.responseText
 
-			}  
-			
+			xhttp.onload = function() {
+				//alert('user is exist ');
+				document.getElementById('displayMobile').innerHTML = this.responseText
+
+			}
+
 		}
 		function onPassword() {
 			console.log('running onPassword');
