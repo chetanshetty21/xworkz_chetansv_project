@@ -253,21 +253,6 @@ public class SignUpRepositoryImpl implements SignUpRepository {
 			manager.close();
 
 		}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			List<TechEntity> list = query.getResultList();
-			System.out.println("total list found in repo" + list.size());
-			return list;
-		} finally {
-			manager.close();
-			log.info("released the connection...");
-		}
-	}}
+
+	}
+}
