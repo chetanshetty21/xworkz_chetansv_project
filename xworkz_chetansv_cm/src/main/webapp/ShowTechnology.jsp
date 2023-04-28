@@ -27,37 +27,16 @@
 				width="80">
 		</div>
 	</nav>
-	<form action="findByTechName" method="get">
-		Search By techName <input type="text" name="techName" /><input
-			type="submit" value="search" class="btn btn-primary" /> 
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			Search By
-		lang <input type="text" name="lang" /><input type="submit"
-			value="search" class="btn btn-primary" /> Search By version<input
-			type="text" name="version" /> <input type="submit" value="search"
-			class="btn btn-primary" /> Search By owner <input type="text"
-			name="owner" /><input type="submit" value="search"
-			class="btn btn-primary" />
-			<br> Search By supportFrom <input type="text"
-			name="supportFrom" /><input type="submit" value="search"
-			class="btn btn-primary" /> Search By supportTo <input type="text"
-			name="supportFrom" /><input type="submit" value="supportTo"
-			class="btn btn-primary" /> Search By license <input type="text"
-			name="license" /><input type="submit" value="license"
-			class="btn btn-primary" /> Search By license <input type="text"
-			name="license" /><input type="submit" value="license"
-			class="btn btn-primary" /> 
-			<br>Search By osType <input type="text"
-			name="osType" /><input type="submit" value="license"
-			class="btn btn-primary" />
+	<form action="findByProperties" >
+
+		<input type="text" name="techName" placeholder="Technology Name" /> <input
+			type="text" name="lang" /> <input type="text" name="version" /> <input
+			type="text" name="owner" /> <input type="text" name="supportFrom" />
+		<input type="text" name="supportTo" /> <input type="text"
+			name="license" /> <input type="text" name="osType" /> <input
+			type="submit" value="search" class="btn btn-primary" />
+
+
 	</form>
 	<table class="table table-dark table-hover">
 		<tr>

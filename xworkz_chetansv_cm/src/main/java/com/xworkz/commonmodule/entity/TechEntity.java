@@ -22,8 +22,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "tech_table")
-//@NamedQuery(name = "findBytechName", query = "select entity from TechEntity entity where entity.techName=:techNameby or entity.lang=:langby or entity.version=:versionby or entity.owner=:ownerby or entity.supportFrom=:supportFromby or entity.supportTo=:supportToby or entity.license=:licenseToby or entity.openSoure=:openSoureby ")
-@NamedQuery(name = "findBytechName", query = "select entity from TechEntity entity where entity.techName=:techNameby and entity.signUpEntity.id=:signupIdBy ")
+@NamedQuery(name = "findByProperties", query = "select entity from TechEntity entity where entity.techName=:techNameby or entity.lang=:langby or entity.version=:versionby or entity.owner=:ownerby or entity.supportFrom=:supportFromby or entity.supportTo=:supportToby or entity.license=:licenseToby or entity.openSoure=:openSoureby and entity.signUpEntity.id=:signupIdBy  ")
+//@NamedQuery(name = "findBytechName", query = "select entity from TechEntity entity where entity.techName=:techNameby and entity.signUpEntity.id=:signupIdBy ")
 
 public class TechEntity extends AbstractAuditEntity {
 

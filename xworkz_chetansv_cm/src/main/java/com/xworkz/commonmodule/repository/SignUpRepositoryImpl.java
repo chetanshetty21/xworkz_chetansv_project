@@ -229,20 +229,45 @@ public class SignUpRepositoryImpl implements SignUpRepository {
 		return true;
 	}
 
-//	@Override
-//	public List<TechEntity> findByTechName(String techName, String userID) {
-//		EntityManager manager = this.entityManagerFactory.createEntityManager();
-//		try {
-//			Query query = manager.createNamedQuery("findBytechName");
-//			System.out.println("Query:" + query);
-//			query.setParameter("techNameby", techName);
-//			query.setParameter("signupIdBy", userID);
-//			List<TechEntity> list = query.getResultList();
-//			System.out.println("total list found in repo" + list.size());
-//			return list;
-//		} finally {
-//			manager.close();
-//			System.out.println("released the connection...");
-//		}
-//	}
-}
+	@Override
+	public List<TechEntity> findByProperties(String techName, String userID, String lang, double version, String owner,
+			String supportFrom, String supportTo, String license, String openSoure, TechEnum osType) {
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findByProperties");
+			System.out.println("Query:" + query);
+			query.setParameter("techNameby", techName);
+			query.setParameter("signupIdBy", userID);
+			query.setParameter("signupIdBy", lang);
+			query.setParameter("signupIdBy", version);
+			query.setParameter("signupIdBy", owner);
+			query.setParameter("signupIdBy", supportFrom);
+			query.setParameter("signupIdBy", supportTo);
+			query.setParameter("signupIdBy", license);
+			query.setParameter("signupIdBy", openSoure);
+			query.setParameter("signupIdBy", osType);
+			List<TechEntity> list = query.getResultList();
+			log.info("See List in repo  " + list);
+			return list;
+		} finally {
+			manager.close();
+
+		}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			List<TechEntity> list = query.getResultList();
+			System.out.println("total list found in repo" + list.size());
+			return list;
+		} finally {
+			manager.close();
+			log.info("released the connection...");
+		}
+	}}

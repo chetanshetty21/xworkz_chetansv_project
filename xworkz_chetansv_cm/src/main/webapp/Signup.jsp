@@ -35,8 +35,10 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" />
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<!-- <nav class="navbar navbar-expand-lg navbar-bright bg-dark">
@@ -62,7 +64,7 @@
 	<section class="vh-110 bg-image"
 		style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
 		<div class="mask d-flex align-items-center h-100 gradient-custom-3">
-			<div class="container h-100">
+			<div class="container  py-5 h-100">
 				<div
 					class="row d-flex justify-content-center align-items-center h-100">
 					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
@@ -86,7 +88,6 @@
 										<label class="form-label" for="form3Example1cg"><span
 											id="displayUserName" style="color: red"></span></label>
 									</div>
-
 									<div class="form-outline mb-4">
 										<input type="email" id="emailId"
 											class="form-control form-control-lg" onchange="onEmail()"
@@ -127,7 +128,7 @@
 											value="true" id="agreementId" name="acceptAgreement"
 											onclick="onAgreement()" /> <label class="form-check-label"
 											for="form2Example3g"> I agree all statements in <a
-											href="#!" class="text-body">Terms of service</a>
+											class="text-body">Terms of service</a>
 										</label>
 									</div>
 

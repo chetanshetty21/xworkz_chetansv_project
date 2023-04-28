@@ -208,20 +208,16 @@ public class SignUpController {
 
 	}
 
-//	@GetMapping("/findByTechName")
-//	public String onSearchTwoProperties(String techName, String userID, Model model) {
-//		log.info("running onsearchByName controller" + "property1" + techName + "property2" + userID);
-//		List<TechEntity> list = this.signUpService.findByTechName(techName, userID);
-//
-//		if (list != null) {
-//
-//			model.addAttribute("list", list);
-//
-//		} else {
-//			model.addAttribute("message", "Data not found");
-//		}
-//		return "SearchTwoProperties";
-//	}
+	@GetMapping("/findByProperties")
+	public String findByProperties(String techName, String userID, String lang, double version, String owner,
+			String supportFrom, String supportTo, String license, String openSoure, TechEnum osType, Model model) {
+		log.info("running onsearchByName controller");
+		List<TechEntity> list = this.signUpService.findByProperties(techName, userID, lang, version, owner, supportFrom,
+				supportTo, license, openSoure, osType);
+		model.addAttribute("list", list);
+
+		return "SearchTwoProperties";
+	}
 
 }
 //@PostMapping("/UpdateProfile")

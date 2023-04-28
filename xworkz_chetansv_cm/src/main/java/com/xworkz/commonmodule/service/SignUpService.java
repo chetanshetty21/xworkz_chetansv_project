@@ -62,8 +62,9 @@ public interface SignUpService {
 
 	}
 
-//	default List<TechEntity> findByTechName(String techName, String userID) {
-//		return Collections.emptyList();
-//
-//	}
+	default List<TechEntity> findByProperties(String techName, String userID, String lang, double version, String owner,
+			String supportFrom, String supportTo, String license, String openSoure, TechEnum osType) {
+		return null;
+
+	}
 }

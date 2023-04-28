@@ -349,26 +349,18 @@ public class SignUpServiceImpl implements SignUpService {
 
 	}
 
-//	@Override
-//	public List<TechEntity> findByTechName(String techName, String userID) {
-//		log.info("running findByTwoProperties in service " + "property1" + techName + "property2" + userID);
-//		if (techName != null && !techName.isEmpty() && userID != null && !userID.isEmpty()) {
-//			log.info("Data is valid ....calling repo");
-//			List<TechEntity> entities = this.signUpRepository.findByTechName(techName, userID);
-//
-//			for (TechEntity entity : entities) {
-//
-//				entity.setTechName(techName);
-//			//	entity.setLang(userID);
-//
-//				// dto.setName(entity.getName()); getu first in bean utils
-//
-//			}
-//			return SignUpService.super.findByTechName(techName, userID);
-//
-//		}
-//		return null;
-//	}
+	@Override
+	public List<TechEntity> findByProperties(String techName, String userID, String lang, double version, String owner,
+			String supportFrom, String supportTo, String license, String openSoure, TechEnum osType) {
+		SignUpEntity entity = this.signUpRepository.findByUserAndPassword(userID);
+		int id = entity.getId();
+
+		List<TechEntity> list = this.signUpRepository.findByProperties(techName, userID, lang, version, owner,
+				supportFrom, supportTo, license, openSoure, osType);
+
+		log.info("Search List" + list);
+		return list;
+	}
 }
 //	@Async
 //	@Scheduled(fixedRate = 10000)
